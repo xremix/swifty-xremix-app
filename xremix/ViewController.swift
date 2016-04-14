@@ -22,16 +22,15 @@ class ViewController: UIViewController {
     func networkDidLoad(images: [FlickrImage]){
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
-        let maxItemsPerColumn = 5
+        let maxItemsPerColumn = 4
         let columnWidth = UIScreen.mainScreen().bounds.width / CGFloat.init( maxItemsPerColumn)
         NSLog("\(columnWidth)")
         var imagesInRow = 0
         for img in images{
-            
             let url = NSURL(string: img.Url as String)
             let data = NSData(contentsOfURL: url!)
             let uiImageView = UIImageView(image: UIImage(data: data!))
-            uiImageView.frame = CGRectMake(x, y, 80, 80);
+            uiImageView.frame = CGRectMake(x, y, columnWidth, columnWidth);
             uiImageView.contentMode = UIViewContentMode.ScaleAspectFit;
             uiImageView.backgroundColor = UIColor.blackColor()
             x += columnWidth

@@ -24,7 +24,7 @@ class FlickApiReader: NSObject {
     
     static func doNetworkRequest(callback: ([FlickrImage])->Void){
         
-        let url:NSURL = NSURL( string: "http://xremix.de/api/flickr/" )!
+        let url:NSURL = NSURL( string: "http://toni-hoffmann.com/api/flickr/" )!
         let request = NSMutableURLRequest(URL: url )
         
         let session = NSURLSession.sharedSession()
