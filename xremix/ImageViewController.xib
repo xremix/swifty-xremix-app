@@ -16,17 +16,31 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5xU-JI-vNf">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="3" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="fQ2-Si-V8w">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5xU-JI-vNf">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="5xU-JI-vNf" firstAttribute="leading" secondItem="fQ2-Si-V8w" secondAttribute="leading" id="7RN-7A-iyd"/>
+                        <constraint firstAttribute="bottom" secondItem="5xU-JI-vNf" secondAttribute="bottom" id="Cgt-Ch-I1B"/>
+                        <constraint firstItem="5xU-JI-vNf" firstAttribute="centerY" secondItem="fQ2-Si-V8w" secondAttribute="centerY" id="RGQ-zF-RA3"/>
+                        <constraint firstItem="5xU-JI-vNf" firstAttribute="centerX" secondItem="fQ2-Si-V8w" secondAttribute="centerX" id="bQh-l6-NUF"/>
+                        <constraint firstAttribute="trailing" secondItem="5xU-JI-vNf" secondAttribute="trailing" id="nIf-Kc-lOj"/>
+                        <constraint firstItem="5xU-JI-vNf" firstAttribute="top" secondItem="fQ2-Si-V8w" secondAttribute="top" id="nW1-UA-Y5d"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="5xU-JI-vNf" secondAttribute="bottom" id="PvR-sW-TVe"/>
-                <constraint firstAttribute="trailing" secondItem="5xU-JI-vNf" secondAttribute="trailing" id="UUf-RB-bzo"/>
-                <constraint firstItem="5xU-JI-vNf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WHX-la-ehc"/>
-                <constraint firstItem="5xU-JI-vNf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bt7-hP-KLE"/>
+                <constraint firstItem="fQ2-Si-V8w" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Pr-v7-Dqz"/>
+                <constraint firstAttribute="bottom" secondItem="fQ2-Si-V8w" secondAttribute="bottom" id="Ul3-o6-zPK"/>
+                <constraint firstItem="fQ2-Si-V8w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hXb-uP-839"/>
+                <constraint firstAttribute="trailing" secondItem="fQ2-Si-V8w" secondAttribute="trailing" id="ydV-Yj-1bq"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
 </document>

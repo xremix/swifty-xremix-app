@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        do{
+        try NSFileManager.defaultManager().createDirectoryAtPath(NSTemporaryDirectory().stringByAppendingString("tempImages"), withIntermediateDirectories: false, attributes: nil)
+        }catch{
+            NSLog("Could not create tempimages")
+        }
+
+//        let path = NSTemporaryDirectory().stringByAppendingString(""+("24286012334_699cd7ff3b_b.jpg" as NSString).lastPathComponent)
+//        NSLog(path)
+//        let _f = File(path: path)
+//        _f.getAge()
+//        
         return true
     }
 

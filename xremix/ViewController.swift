@@ -18,13 +18,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.embeddedView = NSBundle.mainBundle().loadNibNamed("LoadingView",owner:self,options:nil)[0] as? UIView
         scrollViewOutlet.addSubview(self.embeddedView!)
-        NSLog("Start Network request");
         FlickApiReader.doNetworkRequest(networkDidLoad)
-        
     }
     
     func networkDidLoad(images: [FlickrImage]){
-        NSLog("Callback Called")
         scrollViewOutlet.willRemoveSubview(self.embeddedView!)
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
@@ -33,9 +30,8 @@ class ViewController: UIViewController {
         NSLog("\(columnWidth)")
         var imagesInRow = 0
         for img in images{
-            let url = NSURL(string: img.Url as String)
-            let data = NSData(contentsOfURL: url!)
-            let uiImageView = UIImageView(image: UIImage(data: data!))
+            let data = img.getData()
+            let uiImageView = UIImageView(image: UIImage(data: data))
             uiImageView.frame = CGRectMake(x, y, columnWidth, columnWidth);
             uiImageView.contentMode = UIViewContentMode.ScaleAspectFit;
             uiImageView.backgroundColor = UIColor.blackColor()
@@ -53,7 +49,6 @@ class ViewController: UIViewController {
             uiImageView.userInteractionEnabled = true
             uiImageView.addGestureRecognizer(tapGestureRecognizer)
         }
-        NSLog("Images Added to view")
     }
     
     
