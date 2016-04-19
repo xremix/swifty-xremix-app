@@ -33,7 +33,8 @@ class ViewController: UIViewController {
             let data = img.getData()
             let uiImageView = UIImageView(image: UIImage(data: data))
             uiImageView.frame = CGRectMake(x, y, columnWidth, columnWidth);
-            uiImageView.contentMode = UIViewContentMode.ScaleAspectFit;
+            uiImageView.contentMode = UIViewContentMode.ScaleAspectFill;
+            uiImageView.clipsToBounds = true;
             uiImageView.backgroundColor = UIColor.blackColor()
             x += columnWidth
             imagesInRow += 1
