@@ -17,13 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start-image" translatesAutoresizingMaskIntoConstraints="NO" id="rNw-Si-V8c">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeU-4R-azu">
                                 <rect key="frame" x="180" y="267" width="241" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="Hbi-QG-CFp"/>
+                                    <constraint firstAttribute="width" constant="241" id="LOl-cQ-HVx"/>
                                 </constraints>
                                 <string key="text">xremix.de
 Playground App</string>
@@ -32,25 +29,51 @@ Playground App</string>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                             </label>
-                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgU-o9-7MV">
-                                <rect key="frame" x="0.0" y="236" width="600" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start-image" translatesAutoresizingMaskIntoConstraints="NO" id="rNw-Si-V8c">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-Rd-pnb">
+                                <rect key="frame" x="0.0" y="261" width="600" height="77"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCm-Xw-DOO">
+                                        <rect key="frame" x="221" y="18" width="158" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="158" id="kIC-X7-1rq"/>
+                                        </constraints>
+                                        <string key="text">xremix.de
+Playground App</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="3L2-HU-KbE"/>
+                                    <constraint firstItem="DCm-Xw-DOO" firstAttribute="centerY" secondItem="sBe-Rd-pnb" secondAttribute="centerY" id="8Ej-B2-56E"/>
+                                    <constraint firstItem="DCm-Xw-DOO" firstAttribute="centerX" secondItem="sBe-Rd-pnb" secondAttribute="centerX" id="azc-6f-pjY"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hgU-o9-7MV" firstAttribute="leading" secondItem="rNw-Si-V8c" secondAttribute="leading" id="2pX-oh-NFb"/>
-                            <constraint firstItem="hgU-o9-7MV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="216" id="7dx-b6-Lr2"/>
-                            <constraint firstItem="FeU-4R-azu" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="247" id="Fux-NS-WPr"/>
-                            <constraint firstItem="FeU-4R-azu" firstAttribute="centerX" secondItem="hgU-o9-7MV" secondAttribute="centerX" id="NWX-aS-v3h"/>
-                            <constraint firstItem="FeU-4R-azu" firstAttribute="centerY" secondItem="rNw-Si-V8c" secondAttribute="centerY" id="Rac-Q8-h3Z"/>
-                            <constraint firstItem="hgU-o9-7MV" firstAttribute="centerY" secondItem="rNw-Si-V8c" secondAttribute="centerY" id="d2l-d6-lhh"/>
+                            <constraint firstItem="sBe-Rd-pnb" firstAttribute="trailing" secondItem="rNw-Si-V8c" secondAttribute="trailing" id="41D-iw-v01"/>
+                            <constraint firstItem="sBe-Rd-pnb" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="241" id="JgD-6c-Rlv"/>
+                            <constraint firstItem="FeU-4R-azu" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="247" id="KKy-2D-Tvp"/>
+                            <constraint firstItem="sBe-Rd-pnb" firstAttribute="leading" secondItem="rNw-Si-V8c" secondAttribute="leading" id="Ywg-dZ-eHK"/>
+                            <constraint firstItem="FeU-4R-azu" firstAttribute="centerX" secondItem="rNw-Si-V8c" secondAttribute="centerX" id="c7F-Sx-8xp"/>
                             <constraint firstItem="rNw-Si-V8c" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="dVs-NF-aE1"/>
                             <constraint firstAttribute="trailing" secondItem="rNw-Si-V8c" secondAttribute="trailing" id="eT0-KK-Okw"/>
                             <constraint firstItem="rNw-Si-V8c" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="gG4-VP-ncp"/>
                             <constraint firstItem="rNw-Si-V8c" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="jmV-SN-KIb"/>
-                            <constraint firstItem="hgU-o9-7MV" firstAttribute="trailing" secondItem="rNw-Si-V8c" secondAttribute="trailing" id="ktL-h3-gDc"/>
+                            <constraint firstItem="FeU-4R-azu" firstAttribute="centerY" secondItem="rNw-Si-V8c" secondAttribute="centerY" id="x2E-bm-JJX"/>
+                            <constraint firstItem="sBe-Rd-pnb" firstAttribute="centerY" secondItem="FeU-4R-azu" secondAttribute="centerY" id="zex-Up-tXT"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JgD-6c-Rlv"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

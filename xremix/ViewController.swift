@@ -49,7 +49,6 @@ class ViewController: UIViewController {
             scrollViewOutlet.contentSize = CGSize(width: x + columnWidth, height: y + columnWidth)
             scrollViewOutlet.addSubview(uiImageView)
             
-            
             let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ViewController.imageTapped(_:)))
             uiImageView.userInteractionEnabled = true
             uiImageView.addGestureRecognizer(tapGestureRecognizer)
