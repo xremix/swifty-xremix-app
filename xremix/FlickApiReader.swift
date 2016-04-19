@@ -39,11 +39,13 @@ class FlickApiReader: NSObject {
                 
                 if (statusCode == 200) {
                     do {
-                        dispatch_async(dispatch_get_main_queue()) {
+                            NSLog("Network request came in")
                             let d = data!
                             let images = FlickApiReader.getImagesFromJsonData(d)
-                            callback(images)
-                        }
+                            NSLog("Flickr Objects have been generated")
+                            dispatch_async(dispatch_get_main_queue()) {
+                                callback(images)
+                            }
                     } catch {
                         print("Error with Json: \(error)")
                     }

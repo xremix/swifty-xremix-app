@@ -12,14 +12,20 @@ class ViewController: UIViewController {
 
 
     @IBOutlet weak var scrollViewOutlet: UIScrollView!
+    var embeddedView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.embeddedView = NSBundle.mainBundle().loadNibNamed("LoadingView",owner:self,options:nil)[0] as? UIView
+        scrollViewOutlet.addSubview(self.embeddedView!)
+        NSLog("Start Network request");
         FlickApiReader.doNetworkRequest(networkDidLoad)
         
     }
     
     func networkDidLoad(images: [FlickrImage]){
+        NSLog("Callback Called")
+        scrollViewOutlet.willRemoveSubview(self.embeddedView!)
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
         let maxItemsPerColumn = 4
@@ -44,10 +50,11 @@ class ViewController: UIViewController {
             scrollViewOutlet.addSubview(uiImageView)
             
             
-            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ViewController.imageTapped(_:)))
             uiImageView.userInteractionEnabled = true
             uiImageView.addGestureRecognizer(tapGestureRecognizer)
         }
+        NSLog("Images Added to view")
     }
     
     
@@ -56,7 +63,7 @@ class ViewController: UIViewController {
         
         let ivc = ImageViewController()
 
-                ivc.imageData =        UIImageJPEGRepresentation((img.view as! UIImageView).image!, 0.7)
+        ivc.imageData = UIImageJPEGRepresentation((img.view! as! UIImageView).image!, 0.7)
         self.presentViewController(ivc, animated: true, completion: nil)
         (UIApplication.sharedApplication().delegate as! AppDelegate).allowFullscreen = true
 
