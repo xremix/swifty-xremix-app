@@ -25,8 +25,8 @@ class ImageViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ImageViewController.imageTapped(_:)))
         self.view.userInteractionEnabled = true
         self.view.addGestureRecognizer(tapGestureRecognizer)
-//        let pinchZoomRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(ImageViewController.imagePinched(_:)))
-//        self.view.addGestureRecognizer(pinchZoomRecognizer)
+        let pinchZoomRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(ImageViewController.imagePinched(_:)))
+        self.view.addGestureRecognizer(pinchZoomRecognizer)
         self.imageViewOutlet.clipsToBounds = false
     }
     

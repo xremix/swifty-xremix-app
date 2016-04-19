@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("Could not create tempimages")
         }
 
-//        let path = NSTemporaryDirectory().stringByAppendingString(""+("24286012334_699cd7ff3b_b.jpg" as NSString).lastPathComponent)
-//        NSLog(path)
-//        let _f = File(path: path)
-//        _f.getAge()
-//        
+        let path = NSTemporaryDirectory().stringByAppendingString("tempImages")
+        NSLog(path)
+        let _f = File(path: path)
+        _f.getAge()
+//
         return true
     }
 

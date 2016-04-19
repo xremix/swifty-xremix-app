@@ -23,7 +23,6 @@ class FlickApiReader: NSObject {
     }
     
     static func doNetworkRequest(callback: ([FlickrImage])->Void){
-        
         let url:NSURL = NSURL( string: "http://toni-hoffmann.com/api/flickr/" )!
         let request = NSMutableURLRequest(URL: url )
         
@@ -39,13 +38,11 @@ class FlickApiReader: NSObject {
                 
                 if (statusCode == 200) {
                     do {
-                            NSLog("Network request came in")
-                            let d = data!
-                            let images = FlickApiReader.getImagesFromJsonData(d)
-                            NSLog("Flickr Objects have been generated")
-                            dispatch_async(dispatch_get_main_queue()) {
-                                callback(images)
-                            }
+                        let d = data!
+                        let images = FlickApiReader.getImagesFromJsonData(d)
+                        dispatch_async(dispatch_get_main_queue()) {
+                            callback(images)
+                        }
                     } catch {
                         print("Error with Json: \(error)")
                     }
@@ -58,7 +55,5 @@ class FlickApiReader: NSObject {
         }
         
         task.resume()
-        
-
     }
 }
