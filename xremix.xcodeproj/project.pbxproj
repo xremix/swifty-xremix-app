@@ -19,7 +19,7 @@
 		64ED38EE1CBBAF3200BA8070 /* FlickrImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */; };
 		64ED38F51CBBB8D100BA8070 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */; };
 		64ED38F61CBBB8D100BA8070 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */; };
-		E2D80F161CC6BCA90012148F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D80F151CC6BCA90012148F /* File.swift */; };
+		E2D80F161CC6BCA90012148F /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D80F151CC6BCA90012148F /* Directory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImage.swift; sourceTree = "<group>"; };
 		64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
-		E2D80F151CC6BCA90012148F /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		E2D80F151CC6BCA90012148F /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 				64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */,
 				64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */,
 				64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */,
-				E2D80F151CC6BCA90012148F /* File.swift */,
+				E2D80F151CC6BCA90012148F /* Directory.swift */,
 			);
 			path = xremix;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 				64ED38D21CBBA49900BA8070 /* ViewController.swift in Sources */,
 				64ED38F51CBBB8D100BA8070 /* ImageViewController.swift in Sources */,
 				64ED38EE1CBBAF3200BA8070 /* FlickrImage.swift in Sources */,
-				E2D80F161CC6BCA90012148F /* File.swift in Sources */,
+				E2D80F161CC6BCA90012148F /* Directory.swift in Sources */,
 				64ED38EA1CBBA6D000BA8070 /* SwiftyJSON.swift in Sources */,
 				64ED38D01CBBA49900BA8070 /* AppDelegate.swift in Sources */,
 			);
