@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageViewController" customModule="xremix" customModuleProvider="target">
             <connections>
                 <outlet property="imageViewOutlet" destination="5xU-JI-vNf" id="cxD-oM-eD3"/>
+                <outlet property="scrollViewOutlet" destination="fQ2-Si-V8w" id="eoC-yx-znL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

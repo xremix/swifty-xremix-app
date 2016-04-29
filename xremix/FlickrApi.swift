@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlickApiReader: NSObject {
+class FlickApi: NSObject {
     
     static func getImagesFromJsonData(data: NSData)->[FlickrImage]{
         var retImages = [FlickrImage]()
@@ -16,7 +16,9 @@ class FlickApiReader: NSObject {
         for img in json.array!{
             let fImage = FlickrImage()
             fImage.Url = img["url"].string!
-            fImage.Description = img["title"].string!
+            fImage.BigUrl = img["bigurl"].string!
+            fImage.OriginalUrl = img["originalurl"].string!
+            fImage.Title = img["title"].string!
             retImages.append(fImage)
         }
         return retImages
@@ -31,15 +33,13 @@ class FlickApiReader: NSObject {
         let task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
             if(response != nil){
-                
                 let httpResponse = response as! NSHTTPURLResponse
                 let statusCode = httpResponse.statusCode
-                
                 
                 if (statusCode == 200) {
                     do {
                         let d = data!
-                        let images = FlickApiReader.getImagesFromJsonData(d)
+                        let images = FlickApi.getImagesFromJsonData(d)
                         dispatch_async(dispatch_get_main_queue()) {
                             callback(images)
                         }

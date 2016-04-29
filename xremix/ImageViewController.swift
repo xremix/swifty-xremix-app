@@ -8,16 +8,24 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
-
+class ImageViewController: UIViewController, UIScrollViewDelegate {
+    @IBOutlet weak var scrollViewOutlet: UIScrollView!
     @IBOutlet weak var imageViewOutlet: UIImageView!
-    var imageData: NSData?
+    
+//    var imageData: NSData?
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageViewOutlet.image = UIImage(data: self.imageData!)
         imageViewOutlet.contentMode = UIViewContentMode.ScaleAspectFit;
+        
+        self.scrollViewOutlet.minimumZoomScale=1;
+        self.scrollViewOutlet.maximumZoomScale=3.0;
+        self.scrollViewOutlet.delegate = self;
 
         // Do any additional setup after loading the view.
+    }
+    
+    func showImage(data: NSData){
+            imageViewOutlet.image = UIImage(data: data)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -60,10 +68,8 @@ class ImageViewController: UIViewController {
             
             imageViewOutlet?.transform = transform
             sender.scale = 1
-            
         }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

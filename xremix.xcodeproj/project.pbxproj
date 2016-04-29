@@ -14,11 +14,12 @@
 		64ED38D81CBBA49900BA8070 /* xremix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38D61CBBA49900BA8070 /* xremix.xcdatamodeld */; };
 		64ED38DA1CBBA49900BA8070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64ED38D91CBBA49900BA8070 /* Assets.xcassets */; };
 		64ED38DD1CBBA49900BA8070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64ED38DB1CBBA49900BA8070 /* LaunchScreen.storyboard */; };
-		64ED38E61CBBA5A900BA8070 /* FlickApiReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38E51CBBA5A900BA8070 /* FlickApiReader.swift */; };
+		64ED38E61CBBA5A900BA8070 /* FlickrApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38E51CBBA5A900BA8070 /* FlickrApi.swift */; };
 		64ED38EA1CBBA6D000BA8070 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38E91CBBA6D000BA8070 /* SwiftyJSON.swift */; };
 		64ED38EE1CBBAF3200BA8070 /* FlickrImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */; };
 		64ED38F51CBBB8D100BA8070 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */; };
 		64ED38F61CBBB8D100BA8070 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */; };
+		E2D794A11CD347C60018F05F /* XUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D794A01CD347C60018F05F /* XUIImageView.swift */; };
 		E2D80F161CC6BCA90012148F /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D80F151CC6BCA90012148F /* Directory.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,11 +33,12 @@
 		64ED38D91CBBA49900BA8070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64ED38DC1CBBA49900BA8070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64ED38DE1CBBA49900BA8070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64ED38E51CBBA5A900BA8070 /* FlickApiReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickApiReader.swift; sourceTree = "<group>"; };
+		64ED38E51CBBA5A900BA8070 /* FlickrApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrApi.swift; sourceTree = "<group>"; };
 		64ED38E91CBBA6D000BA8070 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImage.swift; sourceTree = "<group>"; };
 		64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		E2D794A01CD347C60018F05F /* XUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XUIImageView.swift; sourceTree = "<group>"; };
 		E2D80F151CC6BCA90012148F /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,20 +72,21 @@
 		64ED38CE1CBBA49900BA8070 /* xremix */ = {
 			isa = PBXGroup;
 			children = (
-				64B084C21CC6790D001A701A /* LoadingView.xib */,
 				64ED38CF1CBBA49900BA8070 /* AppDelegate.swift */,
-				64ED38D11CBBA49900BA8070 /* ViewController.swift */,
-				64ED38D31CBBA49900BA8070 /* Main.storyboard */,
 				64ED38D91CBBA49900BA8070 /* Assets.xcassets */,
-				64ED38DB1CBBA49900BA8070 /* LaunchScreen.storyboard */,
-				64ED38DE1CBBA49900BA8070 /* Info.plist */,
-				64ED38D61CBBA49900BA8070 /* xremix.xcdatamodeld */,
-				64ED38E51CBBA5A900BA8070 /* FlickApiReader.swift */,
-				64ED38E91CBBA6D000BA8070 /* SwiftyJSON.swift */,
+				E2D80F151CC6BCA90012148F /* Directory.swift */,
+				64ED38E51CBBA5A900BA8070 /* FlickrApi.swift */,
 				64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */,
 				64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */,
 				64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */,
-				E2D80F151CC6BCA90012148F /* Directory.swift */,
+				64ED38DE1CBBA49900BA8070 /* Info.plist */,
+				64ED38DB1CBBA49900BA8070 /* LaunchScreen.storyboard */,
+				64B084C21CC6790D001A701A /* LoadingView.xib */,
+				64ED38D31CBBA49900BA8070 /* Main.storyboard */,
+				64ED38E91CBBA6D000BA8070 /* SwiftyJSON.swift */,
+				64ED38D11CBBA49900BA8070 /* ViewController.swift */,
+				64ED38D61CBBA49900BA8070 /* xremix.xcdatamodeld */,
+				E2D794A01CD347C60018F05F /* XUIImageView.swift */,
 			);
 			path = xremix;
 			sourceTree = "<group>";
@@ -164,7 +167,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				64ED38D81CBBA49900BA8070 /* xremix.xcdatamodeld in Sources */,
-				64ED38E61CBBA5A900BA8070 /* FlickApiReader.swift in Sources */,
+				E2D794A11CD347C60018F05F /* XUIImageView.swift in Sources */,
+				64ED38E61CBBA5A900BA8070 /* FlickrApi.swift in Sources */,
 				64ED38D21CBBA49900BA8070 /* ViewController.swift in Sources */,
 				64ED38F51CBBB8D100BA8070 /* ImageViewController.swift in Sources */,
 				64ED38EE1CBBAF3200BA8070 /* FlickrImage.swift in Sources */,

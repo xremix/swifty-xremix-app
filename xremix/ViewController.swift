@@ -18,10 +18,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.embeddedView = NSBundle.mainBundle().loadNibNamed("LoadingView",owner:self,options:nil)[0] as? UIView
         scrollViewOutlet.addSubview(self.embeddedView!)
-        FlickApiReader.doNetworkRequest(networkDidLoad)
+        FlickApi.doNetworkRequest(networkDidLoad)
     }
     
-    func networkDidLoad(images: [FlickrImage]){
+    func networkDidLoad(flickrImages: [FlickrImage]){
         scrollViewOutlet.willRemoveSubview(self.embeddedView!)
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
@@ -29,9 +29,11 @@ class ViewController: UIViewController {
         let columnWidth = UIScreen.mainScreen().bounds.width / CGFloat.init( maxItemsPerColumn)
         NSLog("\(columnWidth)")
         var imagesInRow = 0
-        for img in images{
-            let data = img.getData()
-            let uiImageView = UIImageView(image: UIImage(data: data))
+        for flickrImage in flickrImages{
+            let data = flickrImage.getData()
+            let uiImageView = XUIImageView(image: UIImage(data: data))
+            // Set flickr image
+            uiImageView.flickrImage = flickrImage
             uiImageView.frame = CGRectMake(x, y, columnWidth, columnWidth);
             uiImageView.contentMode = UIViewContentMode.ScaleAspectFill;
             uiImageView.clipsToBounds = true;
@@ -55,22 +57,19 @@ class ViewController: UIViewController {
     
     func imageTapped(img: AnyObject)
     {
+        let ximg = (img.view!) as! XUIImageView
         
         let ivc = ImageViewController()
-
-        ivc.imageData = UIImageJPEGRepresentation((img.view! as! UIImageView).image!, 0.7)
+        
         self.presentViewController(ivc, animated: true, completion: nil)
         (UIApplication.sharedApplication().delegate as! AppDelegate).allowFullscreen = true
-
+        ivc.showImage((ximg.flickrImage?.getOriginalData())!)
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
 

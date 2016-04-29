@@ -24,9 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         let path = NSTemporaryDirectory().stringByAppendingString("tempImages")
-        NSLog(path)
-        let _f = Directory(path: path)
-//        _f.loopFiles()
+        _ = Directory(path: path)
         return true
     }
 
