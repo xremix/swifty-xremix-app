@@ -12,6 +12,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollViewOutlet: UIScrollView!
     @IBOutlet weak var imageViewOutlet: UIImageView!
     
+    var loadingView: UIView?
+    
 //    var imageData: NSData?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +26,43 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    
+    func showLoadingView(){
+        if(self.loadingView == nil){
+            self.loadingView = NSBundle.mainBundle().loadNibNamed("LoadingView",owner:self,options:nil)[0] as? UIView
+        }
+        scrollViewOutlet.addSubview(self.loadingView!)
+    }
+    
+    func hideLoadingView(){
+        self.loadingView!.removeFromSuperview()
+    }
+    
     func showImage(data: NSData){
             imageViewOutlet.image = UIImage(data: data)
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ImageViewController.imageTapped(_:)))
-        self.view.userInteractionEnabled = true
-        self.view.addGestureRecognizer(tapGestureRecognizer)
-        let pinchZoomRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(ImageViewController.imagePinched(_:)))
-        self.view.addGestureRecognizer(pinchZoomRecognizer)
-        self.imageViewOutlet.clipsToBounds = false
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ImageViewController.imageTapped(_:)))
+        singleTap.numberOfTapsRequired = 1
+        self.view!.addGestureRecognizer(singleTap)
+        let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ImageViewController.handleDoubleTap(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        self.view!.addGestureRecognizer(doubleTap)
+        singleTap.requireGestureRecognizerToFail(doubleTap)
+
+    }
+    func handleDoubleTap(gestureRecognizer: UIGestureRecognizer) {
+        if self.scrollViewOutlet.zoomScale > self.scrollViewOutlet.minimumZoomScale {
+            self.scrollViewOutlet.setZoomScale(self.scrollViewOutlet.minimumZoomScale, animated: true)
+        }
+        else {
+            self.scrollViewOutlet.setZoomScale(self.scrollViewOutlet.maximumZoomScale, animated: true)
+        }
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
@@ -47,28 +74,6 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     {
         (UIApplication.sharedApplication().delegate as! AppDelegate).allowFullscreen = false
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePinched(sender: UIPinchGestureRecognizer)
-    {
-        if sender.state == .Ended || sender.state == .Changed {
-            
-            let currentScale = (imageViewOutlet?.frame.size.width)! / (imageViewOutlet?.bounds.size.width)!
-
-            var newScale = currentScale*sender.scale
-            
-            if newScale < 1 {
-                newScale = 1
-            }
-            if newScale > 9 {
-                newScale = 9
-            }
-            
-            let transform = CGAffineTransformMakeScale(newScale, newScale)
-            
-            imageViewOutlet?.transform = transform
-            sender.scale = 1
-        }
     }
     
     override func didReceiveMemoryWarning() {

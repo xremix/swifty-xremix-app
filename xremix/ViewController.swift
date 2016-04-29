@@ -12,17 +12,30 @@ class ViewController: UIViewController {
 
 
     @IBOutlet weak var scrollViewOutlet: UIScrollView!
-    var embeddedView: UIView?
+    var loadingView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.embeddedView = NSBundle.mainBundle().loadNibNamed("LoadingView",owner:self,options:nil)[0] as? UIView
-        scrollViewOutlet.addSubview(self.embeddedView!)
         FlickApi.doNetworkRequest(networkDidLoad)
     }
     
+    
+    func showLoadingView(){
+        if(self.loadingView == nil){
+            self.loadingView = NSBundle.mainBundle().loadNibNamed("LoadingView",owner:self,options:nil)[0] as? UIView
+        }
+        scrollViewOutlet.addSubview(self.loadingView!)
+    }
+    
+    func hideLoadingView(){
+        if(self.loadingView != nil){
+            self.loadingView!.removeFromSuperview()
+        }
+        
+    }
+    
     func networkDidLoad(flickrImages: [FlickrImage]){
-        scrollViewOutlet.willRemoveSubview(self.embeddedView!)
+        hideLoadingView()
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
         let maxItemsPerColumn = 4
@@ -63,7 +76,18 @@ class ViewController: UIViewController {
         
         self.presentViewController(ivc, animated: true, completion: nil)
         (UIApplication.sharedApplication().delegate as! AppDelegate).allowFullscreen = true
-        ivc.showImage((ximg.flickrImage?.getOriginalData())!)
+        
+        ivc.showLoadingView()
+        
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            let data = ximg.flickrImage?.getOriginalData()
+            dispatch_async(dispatch_get_main_queue()) {
+                ivc.hideLoadingView()
+                ivc.showImage(data!)
+            }
+        }
+//        ivc.showImage((ximg.flickrImage?.getOriginalData())!)
     }
     
     override func didReceiveMemoryWarning() {
