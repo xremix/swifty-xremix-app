@@ -19,6 +19,7 @@
 		64ED38EE1CBBAF3200BA8070 /* FlickrImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */; };
 		64ED38F51CBBB8D100BA8070 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */; };
 		64ED38F61CBBB8D100BA8070 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */; };
+		E2B24CE91CD7E34A008AD039 /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24CE81CD7E34A008AD039 /* ImagePageViewController.swift */; };
 		E2D794A11CD347C60018F05F /* XUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D794A01CD347C60018F05F /* XUIImageView.swift */; };
 		E2D80F161CC6BCA90012148F /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D80F151CC6BCA90012148F /* Directory.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImage.swift; sourceTree = "<group>"; };
 		64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		E2B24CE81CD7E34A008AD039 /* ImagePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
 		E2D794A01CD347C60018F05F /* XUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XUIImageView.swift; sourceTree = "<group>"; };
 		E2D80F151CC6BCA90012148F /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				E2D80F151CC6BCA90012148F /* Directory.swift */,
 				64ED38E51CBBA5A900BA8070 /* FlickrApi.swift */,
 				64ED38ED1CBBAF3200BA8070 /* FlickrImage.swift */,
+				E2B24CE81CD7E34A008AD039 /* ImagePageViewController.swift */,
 				64ED38F31CBBB8D100BA8070 /* ImageViewController.swift */,
 				64ED38F41CBBB8D100BA8070 /* ImageViewController.xib */,
 				64ED38DE1CBBA49900BA8070 /* Info.plist */,
@@ -169,6 +172,7 @@
 				64ED38D81CBBA49900BA8070 /* xremix.xcdatamodeld in Sources */,
 				E2D794A11CD347C60018F05F /* XUIImageView.swift in Sources */,
 				64ED38E61CBBA5A900BA8070 /* FlickrApi.swift in Sources */,
+				E2B24CE91CD7E34A008AD039 /* ImagePageViewController.swift in Sources */,
 				64ED38D21CBBA49900BA8070 /* ViewController.swift in Sources */,
 				64ED38F51CBBB8D100BA8070 /* ImageViewController.swift in Sources */,
 				64ED38EE1CBBAF3200BA8070 /* FlickrImage.swift in Sources */,

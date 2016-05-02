@@ -11,8 +11,9 @@ import UIKit
 class ImageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollViewOutlet: UIScrollView!
     @IBOutlet weak var imageViewOutlet: UIImageView!
-    
+    var initWindow: String?
     var loadingView: UIView?
+    var onloadImage: FlickrImage?
     
 //    var imageData: NSData?
     override func viewDidLoad() {
@@ -24,6 +25,20 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         self.scrollViewOutlet.delegate = self;
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.showLoadingView()
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            
+            let data = self.onloadImage!.getOriginalData()
+            dispatch_async(dispatch_get_main_queue()) {
+                self.hideLoadingView()
+                self.showImage(data)
+            }
+        }
+
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -39,7 +54,9 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func hideLoadingView(){
-        self.loadingView!.removeFromSuperview()
+        if(self.loadingView != nil){
+            self.loadingView!.removeFromSuperview()
+        }        
     }
     
     func showImage(data: NSData){

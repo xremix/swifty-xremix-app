@@ -37,14 +37,10 @@ class FlickApi: NSObject {
                 let statusCode = httpResponse.statusCode
                 
                 if (statusCode == 200) {
-                    do {
-                        let d = data!
-                        let images = FlickApi.getImagesFromJsonData(d)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            callback(images)
-                        }
-                    } catch {
-                        print("Error with Json: \(error)")
+                    let d = data!
+                    let images = FlickApi.getImagesFromJsonData(d)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        callback(images)
                     }
                 } else {
                     
