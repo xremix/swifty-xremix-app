@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scrollViewOutlet: UIScrollView!
     var loadingView: UIView?
+    var flickrImages: [FlickrImage]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
     }
     
     func networkDidLoad(flickrImages: [FlickrImage]){
+        self.flickrImages = flickrImages
         hideLoadingView()
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
@@ -71,23 +73,31 @@ class ViewController: UIViewController {
     func imageTapped(img: AnyObject)
     {
         let ximg = (img.view!) as! XUIImageView
+        let ipvc = ImagePageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
         
-        let ivc = ImageViewController()
+//        init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation navigationOrientation: UIPageViewControllerNavigationOrientation, options options: [NSObject : AnyObject]!) {
+//        }
+        ipvc.images  = self.flickrImages
+        ipvc.firstImage = ximg.flickrImage
         
-        self.presentViewController(ivc, animated: true, completion: nil)
+        self.presentViewController(ipvc, animated: true, completion: nil)
+
+//        
+//        let ivc = ImageViewController()
+//        
+//        self.presentViewController(ivc, animated: true, completion: nil)
         (UIApplication.sharedApplication().delegate as! AppDelegate).allowFullscreen = true
-        
-        ivc.showLoadingView()
-        
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            let data = ximg.flickrImage?.getOriginalData()
-            dispatch_async(dispatch_get_main_queue()) {
-                ivc.hideLoadingView()
-                ivc.showImage(data!)
-            }
-        }
-//        ivc.showImage((ximg.flickrImage?.getOriginalData())!)
+//
+//        ivc.showLoadingView()
+//        
+//        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+//        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+//            let data = ximg.flickrImage?.getOriginalData()
+//            dispatch_async(dispatch_get_main_queue()) {
+//                ivc.hideLoadingView()
+//                ivc.showImage(data!)
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
